@@ -19,15 +19,17 @@ public class DashboardPage {
     private final String balanceFinish = " р.";
 
 
+
     public DashboardPage() {
         heading.shouldBe(visible);
     }
 
-    public MonyTransferPage transferMonyFromCard1 () {
+    public MonyTransferPage transferMonyFromCard1() {
         topUpCard1Button.click();
         return new MonyTransferPage();
     }
-    public MonyTransferPage transferMonyFromCard2 () {
+
+    public MonyTransferPage transferMonyFromCard2() {
         topUpCard2Button.click();
         return new MonyTransferPage();
     }
@@ -35,7 +37,7 @@ public class DashboardPage {
     public int getFirstCardBalance() {
         val text = cards.first().text();
         return extractBalance(text);
-        }
+    }
 
     public int getSecondCardBalance() {
         val text = cards.last().text();

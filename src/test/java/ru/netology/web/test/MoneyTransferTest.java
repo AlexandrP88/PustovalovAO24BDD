@@ -30,6 +30,7 @@ class MoneyTransferTest {
         assertEquals((balanceFirstCardBeforeTransfer + transfersum), balanceFirstCardAfterTransfer);
         assertEquals((balanceSecondCardBeforeTransfer - transfersum), balanceSecondCardAfterTransfer);
     }
+
     @Test
     void shouldNotTransferMoneyOnFirstCard() {
         open("http://localhost:9999");
@@ -44,12 +45,12 @@ class MoneyTransferTest {
         dashboardPage.transferMonyFromCard1();
         int transfersum = 50000;
         var monyTransferPage = new MonyTransferPage();
-        monyTransferPage.transferMony(transfersum, DataHelper.getCardSecond());
+        monyTransferPage.transferError(transfersum, DataHelper.getCardSecond());
         var dashboardPage2 = new DashboardPage();
         var balanceFirstCardAfterTransfer = dashboardPage2.getFirstCardBalance();
         var balanceSecondCardAfterTransfer = dashboardPage2.getSecondCardBalance();
-        assertEquals((balanceFirstCardBeforeTransfer + transfersum), balanceFirstCardAfterTransfer);
-        assertEquals((balanceSecondCardBeforeTransfer - transfersum), balanceSecondCardAfterTransfer);
+        assertEquals((balanceFirstCardBeforeTransfer), balanceFirstCardAfterTransfer);
+        assertEquals((balanceSecondCardBeforeTransfer), balanceSecondCardAfterTransfer);
     }
 
 }

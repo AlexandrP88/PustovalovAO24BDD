@@ -34,7 +34,7 @@ public class DataHelper {
     public static class Card {
 
         private String namber;
-        }
+    }
 
     public static Card getCardFirst() {
         return new Card("5559 0000 0000 0001");
